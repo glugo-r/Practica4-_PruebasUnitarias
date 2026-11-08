@@ -13,7 +13,7 @@ def sistema():
 # 1. Agregue casos normales.
 
 def test_caso_Boleto_Perdido(sistema):
-    # Arrage
+    # Arrange
     minutos = 1
     perdido = True
 
@@ -25,7 +25,7 @@ def test_caso_Boleto_Perdido(sistema):
 
 def test_caso_Cero_Minutos(sistema):
 
-    # Arrege
+    # Arrange
     minutos = 0
 
     # Act
@@ -36,7 +36,7 @@ def test_caso_Cero_Minutos(sistema):
 
 def test_caso_190_Minutos(sistema):
 
-    # Arrege
+    # Arrange
     minutos = 190
 
     # Act
@@ -44,6 +44,17 @@ def test_caso_190_Minutos(sistema):
 
     # Assert
     assert resultado == 65.00
+    
+def test_Descuento_Negativo(sistema):
+    #A rrange
+    minutos = 0
+    cliente = "frecuente"
+    
+    # Act
+    resultado = sistema.calcular_total(minutos,cliente, False)
+    
+    # Assert
+    assert resultado == 0.00
 
 # 2. Agregue casos frontera.
 
@@ -58,7 +69,7 @@ def test_caso_Frontera_16_Minutos(sistema):
     assert resultado == 20.00
 
 def test_caso_Frontera_60_Minutos(sistema):
-    # Arrege
+    # Arrange
     minutos = 60
 
     # Act
@@ -68,7 +79,7 @@ def test_caso_Frontera_60_Minutos(sistema):
     assert resultado == 20.00
 
 def test_caso_Frontera_61_Minutos(sistema):
-    # Arrege
+    # Arrange
     minutos = 61
 
     # Act
@@ -78,7 +89,7 @@ def test_caso_Frontera_61_Minutos(sistema):
     assert resultado == 35.00
 
 def test_caso_Frontera_120_Minutos(sistema):
-    # Arrege
+    # Arrange
     minutos = 120
 
     # Act
@@ -88,7 +99,7 @@ def test_caso_Frontera_120_Minutos(sistema):
     assert resultado == 35.00
 
 def test_caso_Frontera_121_Minutos(sistema):
-    # Arrege
+    # Arrange
     minutos = 121
 
     # Act
